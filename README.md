@@ -10,7 +10,7 @@ Create Database, set credential and Database name in .env file in "system" direc
 
 ### Run following Command in same order
 
-> cd system
-> php artisan migrate
-> php artisan key:generate
-> php artisan db:seed
+> cd system..
+> php artisan migrate..
+> php artisan key:generate..
+> php artisan db:seed..
