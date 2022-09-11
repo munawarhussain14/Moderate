@@ -28,10 +28,16 @@
         $(this).parent().find(".custom-file-label").text(fileName);
     });
 
-    $("#data-form").submit(function(e){
-      //e.preventDefault();
-      //console.log("Test");
+    $("#primary_color").on("change paste keyup",function(){
+      $(".primary_color_block").css("background",this.value);
     });
+    $(".primary_color_block").css("background",$("#primary_color").val());
+    
+    $("#secondary_color").on("change paste keyup",function(){
+      $(".secondary_color_block").css("background",this.value);
+    });
+    $(".secondary_color_block").css("background",$("#secondary_color").val());
+
   });
 
 </script>
@@ -88,12 +94,20 @@
           <div class="col-6">
             <div class="form-group">
               <label for="name">Primary Color</label>
-              <input type="text" class="form-control @error('primary_color') is-invalid @enderror" 
-              id="primary_color" 
-              name="primary_color"
-              placeholder="Enter Primary Color"
-              value="{{ old('primary_color',(isset($row))?$row->primary_color:"") }}"
-              />
+              <div class="input-group mb-3">
+                <input 
+                  type="text" class="form-control @error('primary_color') is-invalid @enderror" 
+                  id="primary_color" 
+                  name="primary_color"
+                  placeholder="Enter Primary Color"
+                  value="{{ old('primary_color',(isset($row))?$row->primary_color:"") }}"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <div class='color-box primary_color_block' style='background:white'></div>
+                    </span>
+                  </div>
+              </div>
               @error('primary_color')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -104,12 +118,20 @@
           <div class="col-6">
             <div class="form-group">
               <label for="name">Secondary Color</label>
-              <input type="text" class="form-control @error('secondary_color') is-invalid @enderror" 
-              id="secondary_color" 
-              name="secondary_color"
-              placeholder="Enter Secondary Color"
-              value="{{ old('secondary_color',(isset($row))?$row->secondary_color:"") }}"
-              />
+              <div class="input-group mb-3">
+                  <input 
+                  type="text" class="form-control @error('secondary_color') is-invalid @enderror" 
+                  id="secondary_color" 
+                  name="secondary_color"
+                  placeholder="Enter Secondary Color"
+                  value="{{ old('secondary_color',(isset($row))?$row->secondary_color:"") }}"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <div class='color-box secondary_color_block' style='background:white'></div>
+                    </span>
+                  </div>
+              </div>
               @error('secondary_color')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>

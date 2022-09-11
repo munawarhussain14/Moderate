@@ -58,8 +58,13 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function(){
         'restaurants', App\Http\Controllers\Admin\RestaurantController::class
     );
 
+    
+    Route::resource(
+        'setting', App\Http\Controllers\Admin\SettingController::class
+    );
+   
     Route::get('/read', [App\Http\Controllers\Admin\ModuleController::class, 'read'])->name('read');
-
+    
     Route::post('/role-permission/{role_id}', [App\Http\Controllers\Admin\RoleController::class, 'permission'])->name('role.permission');
 
     Route::get('/user-permission/{user_id}', [App\Http\Controllers\Admin\UserController::class, 'permission'])->name('user.permission');

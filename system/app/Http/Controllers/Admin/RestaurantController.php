@@ -40,8 +40,8 @@ class RestaurantController extends AdminController
             ["data" => 'id', "name" => 'ID'],
             ["data" => 'name', "name" => 'Name'],
             ["data" => 'logo', "name" => 'Logo'],
-            ["data" => 'address', "name" => 'address'],
-            ["data" => 'primary_color', "name" => 'color', "orderable"=> "false", "searchable"=> "false"],
+            ["data" => 'address', "name" => 'Address'],
+            ["data" => 'primary_color', "name" => 'Color', "orderable"=> "false", "searchable"=> "false"],
             ["data"=> 'action', "name"=> 'Action', "orderable"=> "false", "searchable"=> "false"],
         ]
     ];
@@ -82,6 +82,10 @@ class RestaurantController extends AdminController
             }
             $file = $request->file('logo');
             $attachment = $this->uploadFile($file,"uploads/".$this->params['upload_dir']."/images");
+            if(file_exists($table->logo))
+            {
+                unlink($table->logo);
+            }
         }
 
         if($attachment!=""){
@@ -95,6 +99,10 @@ class RestaurantController extends AdminController
             }
             $file = $request->file('pdf_menue');
             $attachment = $this->uploadFile($file,"uploads/".$this->params['upload_dir']."/menus");
+            if(file_exists($Table->pdf_menu))
+            {
+                unlink($table->pdf_menu);
+            }
         }
 
         if($attachment!=""){

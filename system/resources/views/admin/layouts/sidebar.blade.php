@@ -234,6 +234,15 @@
             "segment"=>"modules"
           ])
           @endcan
+          @can("read-setting")
+          @include("admin.layouts.partials.navItem",
+          [
+            "page"=>"Setting",
+            "icon"=>"nav-icon fas fa-shapes",
+            "route"=>route('admin.setting.index'),
+            "segment"=>"setting"
+          ])
+          @endcan
 
         </ul>
       </nav>
