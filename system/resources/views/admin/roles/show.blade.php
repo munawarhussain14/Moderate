@@ -12,7 +12,7 @@
 @section("content")
 <div class="card card-primary">
     <div class="card-header">
-    <h3 class="card-title">{{$params['singular_title']}}</h3>
+        <h3 class="card-title">{{$params['singular_title']}}</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
@@ -31,9 +31,9 @@
                 </div>
             </div>
         </div>
+        <form action="{{route("admin.role.permission",["role_id"=>$row->id])}}" method="POST">
         <div class="row">
-            <form action="{{route("admin.role.permission",["role_id"=>$row->id])}}" method="POST">
-                @csrf
+            @csrf
             <div class="col-12 text-right">
                 <div class="form-group">
                     <div class="custom-control custom-switch">
@@ -81,13 +81,13 @@
                 </div>
             </div>
             @endforeach
-            </form>
+            
         </div>
+        </form>
     <!-- /.card-body -->
     </div>
     <div class="card-footer">
         <a href="{{route($params['route'].".edit",$parm)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
     </div>
 </div>
-
 @endsection

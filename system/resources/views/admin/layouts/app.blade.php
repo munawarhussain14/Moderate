@@ -14,6 +14,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/admin/dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/admin/dist/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/admin/style.css')}}">
   <link rel="stylesheet" href="{{asset('assets/admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
 
   @stack("styles")
@@ -53,7 +54,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>KP Minerals</h1>
+            <h1>Moderate</h1>
           </div>
           {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

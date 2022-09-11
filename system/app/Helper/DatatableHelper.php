@@ -23,6 +23,15 @@ class DatatableHelper{
         ->rawColumns(['action'])
         ->make(true);
     }
+    
+    public function custom_response($rawColumns = ['action']){
+        return Datatables::of($this->data)
+        ->addIndexColumn()
+        ->addColumn('action',function($row){
+            return $this->action($row);
+        })
+        ->rawColumns($rawColumns);
+    }
 
     function action($row){
                 $specifier = $this->params["model"];

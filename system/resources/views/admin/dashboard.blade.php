@@ -3,7 +3,7 @@
 @section("content")
 <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Title</h3>
+          <h3 class="card-title">Moderate</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="card-body">
-          Start creating your amazing application!
+          Power by Moderate!
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

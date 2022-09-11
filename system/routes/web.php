@@ -15,12 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::get('about-us', function () {
     return view('web.about-us');
 });
 
 Route::get('contact-us', function () {
     return view('web.contact-us');
+});
+
+Route::get('admin', function () {
+    return redirect("admin/dashboard");
 });
 
 Auth::routes();
@@ -47,6 +52,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function(){
 
     Route::resource(
         'modules', App\Http\Controllers\Admin\ModuleController::class
+    );
+
+    Route::resource(
+        'restaurants', App\Http\Controllers\Admin\RestaurantController::class
     );
 
     Route::get('/read', [App\Http\Controllers\Admin\ModuleController::class, 'read'])->name('read');

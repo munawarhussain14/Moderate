@@ -1,9 +1,9 @@
 <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route("admin.dashboard")}}" class="brand-link">
-      <img src="{{asset('assets/admin/dist/img/logo.png')}}" alt="DGMM Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">KP Minerals</span>
+    <a href="{{route("admin.dashboard")}}" class="brand-link text-center">
+      {{-- <img src="{{asset('assets/admin/dist/img/logo.png')}}" alt="Moderate" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
+      <span class="brand-text font-weight-light">Moderate</span>
     </a>
 
     <!-- Sidebar -->
@@ -43,35 +43,15 @@
               </p>
             </a>
           </li>
-          @can("read-news")
-          <li class="nav-item {{ (request()->segment(2) == 'news') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ (request()->segment(2) == 'news') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-bullhorn"></i>
-              <p>
-                News
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
 
-            <ul class="nav nav-treeview">
-              @can("create-news")
-              <li class="nav-item">
-                <a href="{{route('admin.news.create')}}" class="nav-link {{ (request()->is('admin/news/create')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add News</p>
-                </a>
-              </li>
-              @endcan
-              @can("read-news")
-              <li class="nav-item">
-                <a href="{{route('admin.news.index')}}" class="nav-link {{ (request()->is('admin/news')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All News</p>
-                </a>
-              </li>
-              @endcan
-            </ul>
-          </li>
+          @can("read-restaurants")
+          @include("admin.layouts.partials.navItem",
+              [
+                "page"=>"Restaurants",
+                "icon"=>"nav-icon fas fa-hotel",
+                "route"=>route('admin.restaurants.index'),
+                "segment"=>"restaurants"
+              ])
           @endcan
 
           @can("read-mtc-minutes")

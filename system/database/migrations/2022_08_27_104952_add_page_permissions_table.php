@@ -27,6 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('permissions', function($table) {
+           $table->dropForeign('permissions_module_id_foreign');
            $table->dropColumn('module_id');
        });
     }
